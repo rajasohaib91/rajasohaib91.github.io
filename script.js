@@ -19,42 +19,10 @@ navLinks.forEach(link => {
 });
 
 // ============================
-// PROJECT VIDEO HOVER
-// ============================
-const projectItems = document.querySelectorAll('.project-item');
-
-projectItems.forEach(item => {
-    const video = item.querySelector('.project-video');
-    
-    if (video) {
-        // Play video on mouse enter
-        item.addEventListener('mouseenter', () => {
-            video.currentTime = 0;
-            const playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-                playPromise
-                    .then(() => {
-                        console.log('Video playing');
-                    })
-                    .catch(error => {
-                        console.log('Video play error:', error);
-                    });
-            }
-        });
-        
-        // Pause video on mouse leave
-        item.addEventListener('mouseleave', () => {
-            video.pause();
-            video.currentTime = 0;
-        });
-    }
-});
-
-// ============================
 // PROJECT FILTERING
 // ============================
 const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -65,22 +33,45 @@ filterButtons.forEach(button => {
 
         const filterValue = button.getAttribute('data-filter');
 
-        projectItems.forEach(item => {
-            const category = item.getAttribute('data-category');
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
 
             if (filterValue === 'all' || filterValue === category) {
-                item.style.display = 'block';
-                item.style.animation = 'fadeIn 0.6s ease';
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.6s ease';
             } else {
-                item.style.display = 'none';
+                card.style.display = 'none';
             }
         });
     });
 });
 
 // ============================
-// SMOOTH SCROLL
+// PROJECT VIDEO PREVIEW
 // ============================
+const projectCardsList = document.querySelectorAll('.project-card');
+projectCardsList.forEach(card => {
+    const video = card.querySelector('.project-video');
+    
+    // Play video on hover
+    card.addEventListener('mouseenter', () => {
+        if (video) {
+            video.play().catch(err => console.log('Video play error:', err));
+        }
+    });
+    
+    // Pause video on mouse leave
+    card.addEventListener('mouseleave', () => {
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+    });
+});
+
+// ============================
+// SMOOTH SCROLL
+// ===========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
