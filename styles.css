@@ -11,6 +11,7 @@
     --accent-color: #2563eb;
     --accent-light: #3b82f6;
     --accent-lighter: #dbeafe;
+    --blue-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #06b6d4 100%);
     --bg-light: #f8f9fa;
     --bg-very-light: #f0f4f8;
     --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f4f8 100%);
@@ -259,13 +260,13 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #06b6d4 100%);
     color: var(--text-light);
     box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-    background: var(--accent-light);
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0891b2 100%);
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
 }
@@ -273,12 +274,15 @@ body {
 .btn-secondary {
     background: transparent;
     color: var(--accent-color);
-    border: 2px solid var(--accent-color);
+    border: 2px solid;
+    border-image: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #06b6d4 100%) 1;
+    position: relative;
 }
 
 .btn-secondary:hover {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #06b6d4 100%);
     color: var(--text-light);
+    border-image: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0891b2 100%) 1;
     transform: translateY(-3px);
 }
 
@@ -768,6 +772,16 @@ section {
 
 .project-card:hover .project-video-overlay {
     opacity: 1;
+}
+
+/* Show video for first project card (autoplay) */
+.project-card:first-of-type .project-video-overlay {
+    opacity: 1;
+    background: transparent;
+}
+
+.project-card:first-of-type .project-thumbnail {
+    display: none;
 }
 
 .project-video {
