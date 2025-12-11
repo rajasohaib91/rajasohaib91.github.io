@@ -413,13 +413,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
     flex-shrink: 0;
-}
-
-.skill-icon-card:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
 }
 
 .skill-icon-card img {
@@ -427,11 +421,6 @@ section {
     height: auto;
     max-width: 120px;
     max-height: 120px;
-}
-
-.skill-icon-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
 }
 
 @keyframes skillsScroll {
