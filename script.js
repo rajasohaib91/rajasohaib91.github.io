@@ -50,8 +50,13 @@ filterButtons.forEach(button => {
 // PROJECT VIDEO PREVIEW
 // ============================
 const projectCardsList = document.querySelectorAll('.project-card');
-projectCardsList.forEach(card => {
+projectCardsList.forEach((card, index) => {
     const video = card.querySelector('.project-video');
+    
+    // Set 2x speed for 6th card (index 5)
+    if (video && index === 5) {
+        video.playbackRate = 2.0;
+    }
     
     // Play video on hover
     card.addEventListener('mouseenter', () => {

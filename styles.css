@@ -501,7 +501,7 @@ section {
 }
 
 .timeline {
-    max-width: 800px;
+    max-width: 900px;
     margin: 3rem auto;
     position: relative;
     padding: 0 1rem;
@@ -787,13 +787,17 @@ section {
     opacity: 1;
 }
 
-/* Show video for first project card (autoplay) */
-.project-card:first-of-type .project-video-overlay {
+/* Show video for first and second project cards (autoplay) */
+.project-card:first-of-type .project-video-overlay,
+.project-card:nth-of-type(2) .project-video-overlay,
+.project-card:nth-of-type(6) .project-video-overlay {
     opacity: 1;
     background: transparent;
 }
 
-.project-card:first-of-type .project-thumbnail {
+.project-card:first-of-type .project-thumbnail,
+.project-card:nth-of-type(2) .project-thumbnail,
+.project-card:nth-of-type(6) .project-thumbnail {
     display: none;
 }
 
